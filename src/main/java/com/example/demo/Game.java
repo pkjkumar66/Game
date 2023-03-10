@@ -62,7 +62,7 @@ public class Game {
             String userMove = userMove(scanner);
 
             // if user wishes to quit the game then he/she can choose the quit option and the loop will terminate
-            if (userMove.equals("QUIT")) {
+            if (userMove.equals("quit") || userMove.equals("exit")) {
                 System.out.println();
                 break;
             }
@@ -114,7 +114,7 @@ public class Game {
             System.out.println("Enter your choice (rock/paper/scissors) or quit to exit:  ");
             playerChoice = scanner.nextLine();
 
-            if (playerChoice.equals("quit")) {
+            if (playerChoice.equals("quit") || playerChoice.equals("exit")) {
                 break;
             }
 
@@ -125,7 +125,7 @@ public class Game {
             System.out.println(playerChoice + ", Invalid choice, please try again.");
         }
 
-        return playerChoice.toUpperCase();
+        return playerChoice;
     }
 
     // This method will check whether user has given correct/incorrect input
@@ -141,7 +141,7 @@ public class Game {
         Random random = new Random();
         int computerChoice = random.nextInt(options.length);
         System.out.println("Computer chooses: " + options[computerChoice]);
-        return options[computerChoice].toString();
+        return options[computerChoice].toString().toLowerCase();
     }
 
     // This method will print the score, which shows how many matches were played in one session
