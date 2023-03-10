@@ -28,6 +28,7 @@ public class Game {
     private static final String USER = "User";
     private static final String COMPUTER = "Computer";
 
+    // This method will be used to initialize the member variables
     public void initialize() {
         noOfMatches = 0;
         tie = 0;
@@ -51,6 +52,7 @@ public class Game {
         }
     }
 
+    // This method will be used to start the game
     public void start() {
         status = Status.STARTED;
         Scanner scanner = new Scanner(System.in);
@@ -58,12 +60,14 @@ public class Game {
 
         while (true) {
             String userMove = userMove(scanner);
+
+            // if user wishes to quit the game then he/she can choose the quit option and the loop will terminate
             if (userMove.equals("QUIT")) {
                 System.out.println();
                 break;
             }
 
-            String computerMove = computerMove();
+            String computerMove = computerChoice();
             noOfMatches++;
             getResult(userMove, computerMove);
             System.out.println();
@@ -75,6 +79,8 @@ public class Game {
         System.out.println();
     }
 
+    // This method will give the result on the basis of choices made by user and computer
+    // It contains the rock paper scissors game rule and decided the result using it.
     public Result getResult(String playerChoice, String computerChoice) {
         if (playerChoice.equals(computerChoice)) {
             tie++;
@@ -100,6 +106,7 @@ public class Game {
         }
     }
 
+    // This method is implemented for user which he/she chooses from one of the available options
     private String userMove(Scanner scanner) {
         String playerChoice = "";
 
@@ -121,6 +128,7 @@ public class Game {
         return playerChoice.toUpperCase();
     }
 
+    // This method will check whether user has given correct/incorrect input
     public boolean isValidChoice(String playerChoice) {
         if (playerChoice.equals("rock") || playerChoice.equals("paper") || playerChoice.equals("scissors")) {
             return true;
@@ -128,13 +136,16 @@ public class Game {
         return false;
     }
 
-    private String computerMove() {
+    // This method is implemented for computer choice which randomly chooses from one of the available options.
+    private String computerChoice() {
         Random random = new Random();
         int computerChoice = random.nextInt(options.length);
         System.out.println("Computer chooses: " + options[computerChoice]);
         return options[computerChoice].toString();
     }
 
+    // This method will print the score, which shows how many matches were played in one session
+    // and whether the user or computer won, lost, or tied
     public void printScoreCard() {
         System.out.format("%-10s %6s %6s %6s %6s", "Players", "Matches", "Win", "Loose", "Tie\n");
 
