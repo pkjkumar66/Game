@@ -9,9 +9,26 @@
 For more Info: [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 
 
-### How to run the program
-1. 
+### Dependencies to run this appplication:
+- [java developement IDE](https://www.jetbrains.com/idea/)
+- [download homebrew](https://brew.sh/)
+- [install java 17](https://formulae.brew.sh/formula/openjdk@17)
+- [use this to install mvn](https://formulae.brew.sh/formula/maven)
 
+1. please download zip file from [gitHub](https://github.com/pkjkumar66/game)
+2. build this project and run it
+
+
+### Project contains
+1. Implementation of Rock Paper Scissors Game
+   - Player object with name and score
+   - Result enum with possible outcomes: TIE, WIN, LOOSE
+   - Status enum indicating game status: STARTED, NOT_STARTED, FINISHED
+   - Symbol enum representing available moves: ROCK, PAPER, SCISSORS
+   - Game object with player list, status, result, Symbol options, number of matches, and number of ties in one session
+2. Added test cases for user 
+   - when game will tie or user will win/loose 
+   - when user chooses other than (rock/paper/scissors/quit)
 
 
 ### How to play
@@ -21,4 +38,5 @@ For more Info: [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 3. The computer will then randomly choose one of the available options.
 4. Steps 2 and 3 will be repeated until the user chooses to quit by typing 'quit'.
 5. At the end of the game, the scorecard of all the matches played during the session will be printed.
+6. ![Project Logo](./images/scoreCard.png)
 
