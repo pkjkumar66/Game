@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -19,7 +20,7 @@ import static com.example.demo.Symbol.SCISSORS;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Game {
-    private LinkedList<Player> players;
+    private List<Player> players;
     private Status status;
     private Symbol[] options;
     private int noOfMatches;
@@ -37,7 +38,7 @@ public class Game {
 
     private void addPlayers() {
         if (status == Status.NOT_STARTED) {
-            players = new LinkedList<>();
+            players = new ArrayList<>();
             Player user = Player.builder()
                     .playerName(USER)
                     .build();
@@ -64,7 +65,7 @@ public class Game {
 
             String computerMove = computerMove();
             noOfMatches++;
-            getGameResult(computerMove, userMove);
+            getResult(userMove, computerMove);
             System.out.println();
         }
 
@@ -74,14 +75,14 @@ public class Game {
         System.out.println();
     }
 
-    private Result getGameResult(String computerMove, String playerMove) {
-        if (playerMove.equals(computerMove)) {
+    public Result getResult(String playerChoice, String computerChoice) {
+        if (playerChoice.equals(computerChoice)) {
             tie++;
             return Result.TIE;
 
-        } else if (playerMove.equals(ROCK.toString()) && computerMove.equals(SCISSORS.toString()) ||
-                playerMove.equals(PAPER.toString()) && computerMove.equals(ROCK.toString()) ||
-                playerMove.equals(SCISSORS.toString()) && computerMove.equals(PAPER.toString())) {
+        } else if (playerChoice.equals("rock") && computerChoice.equals("scissors")
+                || playerChoice.equals("paper") && computerChoice.equals("rock")
+                || playerChoice.equals("scissors") && computerChoice.equals("paper")) {
 
             Player user = players.stream().filter(p -> p.getPlayerName().equals(USER)).findFirst().orElse(null);
             if (Objects.nonNull(user)) {
@@ -110,7 +111,7 @@ public class Game {
                 break;
             }
 
-            if (playerChoice.equals("rock") || playerChoice.equals("paper") || playerChoice.equals("scissors")) {
+            if (isValidChoice(playerChoice)) {
                 break;
             }
 
@@ -118,6 +119,13 @@ public class Game {
         }
 
         return playerChoice.toUpperCase();
+    }
+
+    public boolean isValidChoice(String playerChoice) {
+        if (playerChoice.equals("rock") || playerChoice.equals("paper") || playerChoice.equals("scissors")) {
+            return true;
+        }
+        return false;
     }
 
     private String computerMove() {
