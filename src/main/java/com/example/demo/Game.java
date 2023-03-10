@@ -37,6 +37,7 @@ public class Game {
 
     private void addPlayers() {
         if (status == Status.NOT_STARTED) {
+            players = new LinkedList<>();
             Player user = Player.builder()
                     .playerName(USER)
                     .build();
