@@ -1,14 +1,5 @@
 # Rock Paper Scissors Game Implementation: 
 
-### Game Rule
-1. If both players create the same formation then the game is a tie or draw.
-2. The Rock beats the Scissors  (rock crushes scissors)
-3. The Scissors beat the Paper (scissors cut paper)
-4. The Paper beats the Rock (paper can cover the rock)
-
-For more Info: [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
-
-
 ### Dependencies to run this appplication:
 - [java developement IDE](https://www.jetbrains.com/idea/)
 - [download homebrew](https://brew.sh/)
@@ -29,6 +20,15 @@ For more Info: [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 2. Added test cases for user 
    - when game will tie or user will win/loose 
    - when user chooses correct/incorrect choices among (rock/paper/scissors/quit).
+
+
+### Game Rule
+1. If both players create the same formation then the game is a tie or draw.
+2. The Rock beats the Scissors  (rock crushes scissors)
+3. The Scissors beat the Paper (scissors cut paper)
+4. The Paper beats the Rock (paper can cover the rock)
+
+For more Info: [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 
 
 ### How to play
