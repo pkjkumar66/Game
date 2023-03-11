@@ -28,7 +28,7 @@ For more Info: [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
    - Game object with player list, status, result, Symbol options, number of matches, and number of ties in one session
 2. Added test cases for user 
    - when game will tie or user will win/loose 
-   - when user chooses other than (rock/paper/scissors/quit)
+   - when user chooses correct/incorrect choices among (rock/paper/scissors/quit).
 
 
 ### How to play
