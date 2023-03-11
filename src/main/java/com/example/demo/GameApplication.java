@@ -14,7 +14,7 @@ public class GameApplication {
         rockPaperScissors.start();
 
         System.out.println("Every match winner info: ");
-        System.out.println("[If information about the winner of a match is not printed, it means that the match ended in a tie.]");
+        System.out.println("[If information about the winner of a match is not printed, it means that the match ended in a tie]");
         rockPaperScissors.printScoreCardPerMatch();
         System.out.println("Game ScoreCard: ");
         rockPaperScissors.printScoreCard();

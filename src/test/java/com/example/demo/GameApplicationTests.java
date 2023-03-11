@@ -13,13 +13,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class GameApplicationTests {
-    Player user = Player.builder()
+    private final Player user = Player.builder()
             .playerName("USER")
             .build();
-    Player computer = Player.builder()
+    private final Player computer = Player.builder()
             .playerName("COMPUTER")
             .build();
-    private Game game = Game.builder()
+    private final Game game = Game.builder()
             .status(Status.STARTED)
             .noOfMatches(0)
             .tie(0)

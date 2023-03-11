@@ -137,10 +137,7 @@ public class Game {
 
     // This method will check whether user has given correct/incorrect input
     public boolean isValidChoice(String playerChoice) {
-        if (playerChoice.equals("rock") || playerChoice.equals("paper") || playerChoice.equals("scissors")) {
-            return true;
-        }
-        return false;
+        return playerChoice.equals("rock") || playerChoice.equals("paper") || playerChoice.equals("scissors");
     }
 
     // This method is implemented for computer choice which randomly chooses from one of the available options.
