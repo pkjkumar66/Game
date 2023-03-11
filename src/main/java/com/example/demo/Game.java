@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -25,6 +27,8 @@ public class Game {
     private Symbol[] options;
     private int noOfMatches;
     private int tie;
+
+    private Map<Integer, Player> winnerMap;
     private static final String USER = "User";
     private static final String COMPUTER = "Computer";
 
@@ -32,6 +36,7 @@ public class Game {
     public void initialize() {
         noOfMatches = 0;
         tie = 0;
+        winnerMap = new HashMap<>();
         status = Status.NOT_STARTED;
         options = new Symbol[]{ROCK, PAPER, SCISSORS};
         addPlayers();
@@ -75,7 +80,7 @@ public class Game {
 
         status = Status.FINISHED;
         scanner.close();
-        System.out.println("----------GAME END-----------");
+        System.out.println("----------GAME ENDED-----------");
         System.out.println();
     }
 
@@ -93,6 +98,7 @@ public class Game {
             Player user = players.stream().filter(p -> p.getPlayerName().equals(USER)).findFirst().orElse(null);
             if (Objects.nonNull(user)) {
                 user.updateScore();
+                winnerMap.put(noOfMatches, user);
             }
 
             return Result.WIN;
@@ -101,6 +107,7 @@ public class Game {
 
             if (Objects.nonNull(computer)) {
                 computer.updateScore();
+                winnerMap.put(noOfMatches, computer);
             }
             return Result.LOOSE;
         }
@@ -159,5 +166,15 @@ public class Game {
             );
             System.out.println();
         }
+    }
+
+    // This method will print the winner name per match in one session
+    public void printScoreCardPerMatch() {
+        System.out.format("%-10s %8s", "Match", "WinnerInfo\n");
+        winnerMap.forEach((key, value) -> {
+            System.out.format("%-10s %8s", key, value.getPlayerName());
+            System.out.println();
+        });
+        System.out.println();
     }
 }
